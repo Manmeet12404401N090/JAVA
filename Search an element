@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        int[] array = new int[size];
+
+        System.out.println("Enter " + size + " elements: ");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        int sum = 0;
+        for (int i = 0; i < size; i++) {
+            sum += array[i];
+        }
+
+        System.out.println("The sum of the array elements is: " + sum);
+
+        System.out.print("Enter the value to search for: ");
+        int valueToSearch = scanner.nextInt();
+
+        boolean found = false;
+        for (int i = 0; i < size; i++) {
+            if (array[i] == valueToSearch) {
+                found = true;
+                System.out.println("Value " + valueToSearch + " found at index: " + i);
+                break; // Exit the loop once the value is found
+            }
+        }
+
+        if (!found) {
+            System.out.println("Value " + valueToSearch + " not found in the array.");
+        }
+
+        scanner.close();
+    }
+}
